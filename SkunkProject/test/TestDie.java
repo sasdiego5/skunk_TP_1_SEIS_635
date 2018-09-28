@@ -1,11 +1,23 @@
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-//Perform JUnit test cases for the Die class with a predictable die
+//this is JUnit test case for the Die class
 
 public class TestDie
 {
+
+	@Before
+	public void setUp() throws Exception
+	{
+	}
+
+	@After
+	public void tearDown() throws Exception
+	{
+	}
 
 	@Test
 	public void test()
@@ -13,4 +25,5 @@ public class TestDie
 		fail("Not yet implemented");
 	}
 
+	
 }
