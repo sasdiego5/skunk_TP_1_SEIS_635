@@ -8,10 +8,15 @@ import org.junit.Test;
 
 public class TestDie
 {
+	private Die die;
 
 	@Before
 	public void setUp() throws Exception
 	{
+		int[] initValues = new int[]
+		{ 3, 2, 1 };
+
+		this.die = new Die(initValues);
 	}
 
 	@After
@@ -22,10 +27,7 @@ public class TestDie
 	@Test
 	public void test_Init_PredictableDie()
 	{
-		int[] initValues = new int[]
-		{ 3, 2, 1 };
 
-		Die die = new Die(initValues);
 		die.roll();
 		int value = die.getLastRoll();
 
@@ -36,8 +38,7 @@ public class TestDie
 	@Test
 	public void test_Predictable_Roll_2()
 	{
-		Die die = new Die(new int[]
-		{ 3, 2, 1 });
+
 		die.roll();
 		assertEquals("First value Not 3", 3, die.getLastRoll());
 
@@ -45,30 +46,48 @@ public class TestDie
 		assertEquals("First value Not 3", 2, die.getLastRoll());
 
 	}
-	
+
 	@Test
 	public void test_Predictable_Roll_3()
 	{
-		Die die = new Die(new int[]
-		{ 3, 2, 1 });
+
 		die.roll();
 		die.roll();
 		die.roll();
 		assertEquals("First value Not 1", 1, die.getLastRoll());
 
 	}
-	
+
 	@Test
 	public void test_Predictable_Roll_4_with_3_values()
 	{
-		Die die = new Die(new int[]
-		{ 3, 2, 1 });
+
 		die.roll();
 		die.roll();
 		die.roll();
 		die.roll();
 		assertEquals("First value Not going back to first value 3", 3, die.getLastRoll());
 
+	}
+	
+	@Test
+	public void test_Predictable_Roll_5_with_3_values()
+	{
+
+		die.roll();
+		die.roll();
+		die.roll();
+		die.roll();
+		die.roll();
+		assertEquals("First value Not going back to second value 2", 2, die.getLastRoll());
+
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void test_Null_initial_int_array() 
+	{
+		Die die = new Die(null);
+		die.roll();
 	}
 
 }

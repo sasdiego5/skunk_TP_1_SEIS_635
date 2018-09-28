@@ -43,6 +43,10 @@ public class Die
 	// Method for JUnit Testing
 	public Die(int[] predictable_Rolls)
 	{
+		if(predictable_Rolls == null) {
+			throw new RuntimeException("Null initializing int[] array");
+		}
+		
 		this.predictable = true;
 		this.rolls = predictable_Rolls;
 		this.nextRoll_Index = 0;
