@@ -14,8 +14,8 @@ public class TestDie
 	public void setUp() throws Exception
 	{
 		int[] initValues = new int[]
-		{ 3, 2, 1 };
-
+		{ 1, 2, 3 };
+ 
 		this.die = new Die(initValues);
 	}
 
@@ -31,7 +31,7 @@ public class TestDie
 		die.roll();
 		int value = die.getLastRoll();
 
-		assertEquals("First Value Not 3", 3, value);
+		assertEquals("First Value Not 3", 1, value);
 
 	}
 
@@ -40,7 +40,7 @@ public class TestDie
 	{
 
 		die.roll();
-		assertEquals("First value Not 3", 3, die.getLastRoll());
+		assertEquals("First value Not 3", 1, die.getLastRoll());
 
 		die.roll();
 		assertEquals("First value Not 3", 2, die.getLastRoll());
@@ -54,7 +54,7 @@ public class TestDie
 		die.roll();
 		die.roll();
 		die.roll();
-		assertEquals("First value Not 1", 1, die.getLastRoll());
+		assertEquals("First value Not 1", 3, die.getLastRoll());
 
 	}
 
@@ -66,7 +66,7 @@ public class TestDie
 		die.roll();
 		die.roll();
 		die.roll();
-		assertEquals("First value Not going back to first value 3", 3, die.getLastRoll());
+		assertEquals("First value Not going back to first value 3", 1, die.getLastRoll());
 
 	}
 	
@@ -89,5 +89,7 @@ public class TestDie
 		Die die = new Die(null);
 		die.roll();
 	}
+	
+	
 
 }
