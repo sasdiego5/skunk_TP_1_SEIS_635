@@ -9,11 +9,12 @@ import org.junit.Test;
 public class TestDie
 {
 	private Die die;
+	private int[] initValues;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		int[] initValues = new int[]
+		this.initValues = new int[]
 		{ 1, 2, 3 };
  
 		this.die = new Die(initValues);
@@ -90,6 +91,42 @@ public class TestDie
 		die.roll();
 	}
 	
+	@Test
+	public void test_index_0() {
+		die.roll();
+		assertEquals("Index of first roll is not 0", 0, indexOf(initValues,(die.getLastRoll())));
+	}
 	
+	@Test
+	public void test_index_1() {
+		die.roll();
+		die.roll();
+		assertEquals("Index of first roll is not 1", 1, indexOf(initValues,(die.getLastRoll())));
+	}
+	
+	@Test
+	public void test_index_2() {
+		die.roll();
+		die.roll();
+		die.roll();
+		assertEquals("Index of first roll is not 2", 2, indexOf(initValues,(die.getLastRoll())));
+	}
+	
+	@Test
+	public void test_toString() {
+		//die.roll();
+		die.toString();
+		assertEquals("Die: ","Die: ");
+	}
+
+
+	private static int indexOf(int [] x, int lastRoll) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < x.length; i++)
+			if (x[i] == lastRoll)
+				return i;
+		return -1;
+	}
+
 
 }
