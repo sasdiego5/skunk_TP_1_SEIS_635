@@ -102,4 +102,5 @@ public class TestDice {
 		assertFalse("Initial value is not outside range 2 - 12", 2>=dice.getLastRoll() & dice.getLastRoll() >= 12);
 	}
 }
+
  
