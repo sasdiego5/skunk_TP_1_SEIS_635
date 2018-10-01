@@ -25,7 +25,7 @@ public class TestRandomDie
 	{
 
 		for (int i = 0; i < 100; i++)
-		{
+		{ 
 			this.randDie.roll();
 			assertTrue("Die is outside range 1 - 6", 1<=randDie.getLastRoll() & randDie.getLastRoll() <= 6);
 

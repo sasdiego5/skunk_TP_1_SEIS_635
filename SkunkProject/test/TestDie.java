@@ -16,7 +16,7 @@ public class TestDie
 	{
 		this.initValues = new int[]
 		{ 1, 2, 3 };
- 
+
 		this.die = new Die(initValues);
 	}
 
@@ -70,7 +70,7 @@ public class TestDie
 		assertEquals("First value Not going back to first value 3", 1, die.getLastRoll());
 
 	}
-	
+
 	@Test
 	public void test_Predictable_Roll_5_with_3_values()
 	{
@@ -83,51 +83,51 @@ public class TestDie
 		assertEquals("First value Not going back to second value 2", 2, die.getLastRoll());
 
 	}
-	
+
 	@Test(expected = RuntimeException.class)
-	public void test_Null_initial_int_array() 
+	public void test_Null_initial_int_array()
 	{
 		Die die = new Die(null);
 		die.roll();
 	}
-	
-	@Test
-	public void test_index_0() {
-		die.roll();
-		assertEquals("Index of first roll is not 0", 0, indexOf(initValues,(die.getLastRoll())));
-	}
-	
-	@Test
-	public void test_index_1() {
-		die.roll();
-		die.roll();
-		assertEquals("Index of first roll is not 1", 1, indexOf(initValues,(die.getLastRoll())));
-	}
-	
-	@Test
-	public void test_index_2() {
-		die.roll();
-		die.roll();
-		die.roll();
-		assertEquals("Index of first roll is not 2", 2, indexOf(initValues,(die.getLastRoll())));
-	}
-	
-	@Test
-	public void test_toString() {
-		//die.roll();
-		die.toString();
-		assertEquals("Die: ","Die: ");
-	}
 
-
-	private static int indexOf(int [] x, int lastRoll) {
-		// TODO Auto-generated method stub
+	private static int indexOf(int[] x, int lastRoll)
+	{
 		for (int i = 0; i < x.length; i++)
 			if (x[i] == lastRoll)
 				return i;
 		return -1;
 	}
 
+	@Test
+	public void test_index_0()
+	{
+		die.roll();
+		assertEquals("Index of first roll is not 0", 0, indexOf(initValues, (die.getLastRoll())));
+	}
+
+	@Test
+	public void test_index_1()
+	{
+		die.roll();
+		die.roll();
+		assertEquals("Index of first roll is not 1", 1, indexOf(initValues, (die.getLastRoll())));
+	}
+
+	@Test
+	public void test_index_2()
+	{
+		die.roll();
+		die.roll();
+		die.roll();
+		assertEquals("Index of first roll is not 2", 2, indexOf(initValues, (die.getLastRoll())));
+	}
+
+	@Test
+	public void test_toString()
+	{
+		die.toString();
+		assertEquals("Die: ", "Die: ");
+	}
 
 }
- 
