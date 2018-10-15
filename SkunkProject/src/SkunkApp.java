@@ -16,7 +16,7 @@ public class SkunkApp implements Reporter
 
 		StdOut.println("Play one Turn for: " + player.getName());
 
-		// Turn turn = new Turn();
+		Turn turn = new Turn();
 
 		Round round = new Round();
 
@@ -46,12 +46,15 @@ public class SkunkApp implements Reporter
 
 			}
 
+			//int turnScore = turn.getTurnScore();
+
 			int turnScore = round.getTurnScore();
+			round.setRoundScores(turnScore);
 			StdOut.println(player.getName() + " scored " + turnScore + " for this turn.");
 			
 			round.startNewRound();
 		}
-		//StdOut.println(player.getName() + "Overall Score: " + round.overallScore());
+		StdOut.println(player.getName() + "Overall Score: " + round.getRoundScores());
 	}
 
 	@Override

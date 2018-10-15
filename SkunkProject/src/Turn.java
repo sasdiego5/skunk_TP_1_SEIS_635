@@ -13,7 +13,6 @@ public class Turn
 		this.turnScore = 0;
 		this.lastRoll = null;
 		this.rollSequence = new ArrayList<>();
-		
 	}
 	
 	public int getTurnScore() 

@@ -4,19 +4,19 @@ public class Round
 {
 	private int roundNumber;
 	private Turn playerTurn;
-	private ArrayList<Turn> roundScore;
+	private int roundScore;
 	
 	public Round() 
 	{
 		this.roundNumber = 1;
 		this.playerTurn = new Turn();
-		this.roundScore  = new ArrayList<>();
+		this.roundScore  = 0;
 		
 	}
 	
 	public void startNewRound() 
 	{
-		new Round();
+		this.playerTurn = new Turn();
 		this.roundNumber++;
 	}
 	
@@ -25,14 +25,14 @@ public class Round
 		return roundNumber;
 	}
 	
-	public void setRoundsScores() 
+	public void setRoundScores(int scoreTurn) 
 	{
-		this.roundScore.add(playerTurn);
+		this.roundScore += playerTurn.getTurnScore();
 	}
 	
-	public int getRoundsScores() 
+	public int getRoundScores() 
 	{
-		return playerTurn.getTurnScore();
+		return roundScore;
 	}
 
 	public void rollAgain()
