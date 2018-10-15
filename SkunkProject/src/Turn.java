@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import edu.princeton.cs.introcs.StdOut;
 
-public class Turn
+public class Turn 
 {
 	private int turnScore;
 	private Roll lastRoll;

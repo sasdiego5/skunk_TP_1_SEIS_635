@@ -8,20 +8,51 @@ public class Round
 	
 	public Round() 
 	{
-		this.roundNumber = 0;
+		this.roundNumber = 1;
 		this.playerTurn = new Turn();
 		this.roundScore  = new ArrayList<>();
 		
 	}
 	
-	public void newRound() 
+	public void startNewRound() 
 	{
+		new Round();
 		this.roundNumber++;
 	}
 	
 	public int getRoundNumber() 
 	{
 		return roundNumber;
+	}
+	
+	public int overallScore() 
+	{
+		return this.playerTurn.getTurnScore() + this.playerTurn.getTurnScore();
+	}
+
+	public void rollAgain()
+	{
+		this.playerTurn.rollAgain();
+	}
+
+	public void scoreTurn()
+	{
+		this.playerTurn.scoreTurn();
+	}
+
+	public Roll getLastRoll()
+	{
+		return this.playerTurn.getLastRoll();
+	}
+
+	public boolean ends()
+	{
+		return this.playerTurn.ends();
+	}
+
+	public int getTurnScore()
+	{
+		return this.playerTurn.getTurnScore();
 	}
 	
 	 
