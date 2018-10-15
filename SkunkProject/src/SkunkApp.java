@@ -16,7 +16,7 @@ public class SkunkApp implements Reporter
 
 		StdOut.println("Play one Turn for: " + player.getName());
 
-		Turn turn = new Turn();
+	//	Turn turn = new Turn();
 
 		Round round = new Round();
 
