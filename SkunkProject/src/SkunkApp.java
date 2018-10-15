@@ -53,8 +53,10 @@ public class SkunkApp implements Reporter
 			StdOut.println(player.getName() + " scored " + turnScore + " for this turn.");
 			
 			round.startNewRound();
+			
+			StdOut.println(player.getName() + " Overall Score: " + round.getRoundScores());
 		}
-		StdOut.println(player.getName() + "Overall Score: " + round.getRoundScores());
+//		StdOut.println(player.getName() + "Overall Score: " + round.getRoundScores());
 	}
 
 	@Override
