@@ -25,9 +25,14 @@ public class Round
 		return roundNumber;
 	}
 	
-	public int overallScore() 
+	public void setRoundsScores() 
 	{
-		return this.playerTurn.getTurnScore() + this.playerTurn.getTurnScore();
+		this.roundScore.add(playerTurn);
+	}
+	
+	public int getRoundsScores() 
+	{
+		return playerTurn.getTurnScore();
 	}
 
 	public void rollAgain()

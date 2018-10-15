@@ -51,7 +51,7 @@ public class SkunkApp implements Reporter
 			
 			round.startNewRound();
 		}
-		StdOut.println(player.getName() + "Overall Score: " + round.overallScore());
+		//StdOut.println(player.getName() + "Overall Score: " + round.overallScore());
 	}
 
 	@Override
