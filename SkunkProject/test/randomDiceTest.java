@@ -37,7 +37,7 @@ public class randomDiceTest
 	@Test
 	public void test_initial_value_before_roll()
 	{
-		assertTrue("Initial die roll is outside range 2 - 12", 0 <= dice.getLastRoll() & dice.getLastRoll() <= 12);
+		assertTrue("Initial die roll is outside range 2 - 12", 0 <= dice.getLastRoll() & dice.getLastRoll() <= 0);
 	}
 
 	@Test

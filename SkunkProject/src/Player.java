@@ -1,6 +1,10 @@
 public class Player 
 {
 	private String name;
+	private Roll diceRoll;
+	private int score;
+	private Turn turn;
+	private int chips;
 	
 	public Player(String name) 
 	{

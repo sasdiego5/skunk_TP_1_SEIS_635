@@ -8,7 +8,7 @@ public class Die
 
 	public Die()
 	{
-		this.roll();
+		//this.roll(); // keeps consistent with pred-die constructor
 	}
 
 	// Method for JUnit Testing

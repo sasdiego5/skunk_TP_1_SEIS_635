@@ -35,7 +35,7 @@ public class TestRandomDie
 	@Test
 	public void test_initial_value_before_roll() 
 	{
-		assertTrue("Initial die roll is outside range 1 - 6", 1<=randDie.getLastRoll() & randDie.getLastRoll() <= 6);
+		assertTrue("Initial die roll is outside range 1 - 6", 0<=randDie.getLastRoll() & randDie.getLastRoll() <= 0);
 	}
 	
 	@Test

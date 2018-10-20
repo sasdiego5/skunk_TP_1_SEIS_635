@@ -32,13 +32,14 @@ public class Dice
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.roll();
+		//this.roll();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
 	{
 		this.die1 = die1;
 		this.die2 = die2;
+		//this.roll();
 	}
 
 	
