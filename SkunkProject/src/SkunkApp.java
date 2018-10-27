@@ -6,8 +6,16 @@ public class SkunkApp implements Reporter
 
 	public static void main(String[] args)
 	{
+		Game game = new Game();
+		
 		StdOut.println("Welcome to 635 Skunk project!");
-
+		
+		StdOut.println("Enter player number: ");
+		
+		int playerNum = StdIn.readInt();
+		StdIn.readLine();
+		game.setPlayerNum(playerNum);
+				
 		StdOut.println("Enter player name: ");
 
 		String playerName = StdIn.readLine();
