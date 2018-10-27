@@ -1,18 +1,52 @@
+import java.io.IOException;
+
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkApp implements Reporter
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
+		StdOut.println("**************************************************************************");
 		StdOut.println("Welcome to 635 Skunk project!");
+		Game game = new Game();
+		while (true)
+		{
+			StdOut.println("Do you want to view complete rules of the games? yes or no?");
 
-		StdOut.println("Enter player name: ");
+			String answer = StdIn.readLine();
 
+			if (!answer.equals("Yes"))
+			{
+				game.displayRules();
+				
+			}
+			
+		
+		StdOut.println("**************************************************************************");
+
+		StdOut.println("How many players are playing?");
+		
+		int numPlayers = StdIn.readInt();
+		StdIn.readLine();
+		Player play [] = new Player[numPlayers];
+		
+		for (int i = 0; i < play.length; i++)
+		{
+
+			StdOut.print("*  Enter the name of players " + (i + 1) + " : " + "\n");
+			String playerName = StdIn.readLine();
+			Player player = new Player(playerName);
+			play[i] = player ;
+		}
+		
+		//StdOut.print("Enter player name: ");
+		
 		String playerName = StdIn.readLine();
-
 		Player player = new Player(playerName);
+		
+
 
 		StdOut.println("Play one Turn for: " + player.getName());
 
@@ -55,6 +89,7 @@ public class SkunkApp implements Reporter
 			round.startNewRound();
 			
 			StdOut.println(player.getName() + " Overall Score: " + round.getRoundScores());
+		}
 		}
 //		StdOut.println(player.getName() + "Overall Score: " + round.getRoundScores());
 	}
