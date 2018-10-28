@@ -11,23 +11,41 @@ public class Game
 {
 	private Player[] player;
 	private int overallScore;
-	private int playerNum;
+	private int numPlayers;
 	private Round round;
-	private Player play[];
 	
 	public Game() 
 	{
-		
-	}
-
-	public void setPlayerNum(int playerNum)
-	{
-		this.playerNum = playerNum;
+		this.round = new Round();
 	}
 	
-	public int getPlayerNum() 
+	public void addPlayer() 
+	{		
+		this.player = new Player[this.numPlayers];
+		
+		for (int i = 0; i < player.length; i++)
+		{
+			StdOut.print("*  Enter the name for player " + (i + 1) + " : " + "\n");
+			String playerName = StdIn.readLine();
+			Player newPlayer = new Player(playerName);
+			player[i] = newPlayer;
+		}
+	}
+	
+	public void setPlayersNum(int playerNum)
 	{
-		return this.playerNum;
+		this.numPlayers = playerNum;
+	}
+	
+	public int getPlayersNum() 
+	{
+		return this.numPlayers;
+	}
+	
+	public String getPlayerName(int playerIndex) 
+	{
+		String playerName = player[playerIndex].getName();
+		return playerName;
 	}
 	
 	public void displayRules() throws IOException {
@@ -44,8 +62,20 @@ public class Game
 		fileScan.close();
 			
 	}
-	public static void main(String[] args) throws IOException {
+	
+	
+	
+	public static void main(String[] args) throws IOException 
+	{
 		Game game = new Game();
-		game.displayRules();
+//		game.displayRules();
+		
+		
+		StdOut.println("Enter number of players: ");
+		int numPlayers = StdIn.readInt();
+		StdIn.readLine();
+		game.setPlayersNum(numPlayers);
+		
+		game.addPlayer();
 	}
 }
