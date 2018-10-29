@@ -9,10 +9,10 @@ public class SkunkApp implements Reporter
 	public static void main(String[] args) throws IOException
 	{
 		Game game = new Game();
-		
+
 		StdOut.println("**************************************************************************");
 		StdOut.println("Welcome to 635 Skunk project!");
-		
+
 		StdOut.println("Do you want to view the rules of the game? yes or no?");
 
 		String viewRules = StdIn.readLine();
@@ -21,46 +21,37 @@ public class SkunkApp implements Reporter
 		{
 			game.displayRules();
 		}
-		
+
 		StdOut.println("**************************************************************************");
 
-		while (true)
-		{
-					
-		StdOut.println("Enter player number: ");
+		StdOut.println("Enter number of players: ");
 		int numPlayers = StdIn.readInt();
 		StdIn.readLine();
 		game.setPlayersNum(numPlayers);
-//		Player players [] = new Player[numPlayers];
-//		
-//		for (int i = 0; i < players.length; i++)
-//		{
-//
-//			StdOut.print("*  Enter the name for player " + (i + 1) + " : " + "\n");
-//			String playerName = StdIn.readLine();
-//			Player newPlayer = new Player(playerName);
-//			players[i] = newPlayer ;
-//		}
-//				
-//		String playerName = StdIn.readLine();
-//		Player player = new Player(playerName);
-		
+
 		game.addPlayer();
-		
-		String player = game.getPlayerName(numPlayers-1);
+		game.startRound();
 
-		StdOut.println("Play one Turn for: " + player);
+		String player = game.getPlayerName();
 
-	//	Turn turn = new Turn();
+		StdOut.println("Starting Turn number: " + game.getTurnNumber());
 
-		Round round = new Round();
+		StdOut.println("Player in Turn to Roll the dice: " + player);
 
-		//while (game.getRoundNumber() <= 5)
-	//	{
-			StdOut.println("Starting Round number: " + round.getRoundNumber());
-			
-			StdOut.println("Player in turn: " + game.getPlayerName(round.getRoundNumber()));
-			
+		// Turn turn = new Turn();
+
+		// Round round = new Round();
+
+		// while (game.getRoundNumber() <= 5)
+		// {
+		StdOut.println("Starting turn for player number: " + game.getNextTurnIndex() + 1);
+
+		// StdOut.println("Player in turn: " +
+		// game.getPlayerName(game.getNextTurnIndex()));
+		StdOut.println("Player in turn: " + game.getPlayerName());
+				
+		while (game.getTurnNumber() <= 5)
+		{
 
 			while (true)
 			{
@@ -68,12 +59,13 @@ public class SkunkApp implements Reporter
 
 				String response = StdIn.readLine();
 
-				if (!response.equals("no"))
+				if (!response.equalsIgnoreCase("no"))
 				{
-					round.rollAgain();
-					round.scoreTurn();
-					StdOut.println(player + " rolled a " + round.getLastRoll().getDice().getLastRoll());
-					if (round.ends())
+					game.getCurrentPlayer().rollAgain();
+					game.getCurrentPlayer().scoreTurn();
+					StdOut.println(
+							player + " rolled a " + game.getCurrentPlayer().getLastRoll().getDice().getLastRoll());
+					if (game.ends())
 						break;
 				}
 				else
@@ -84,19 +76,20 @@ public class SkunkApp implements Reporter
 
 			}
 
-			//int turnScore = turn.getTurnScore();
+			// int turnScore = turn.getTurnScore();
 
-			int turnScore = round.getTurnScore();
-			round.setRoundScores(turnScore);
+			int turnScore = game.getCurrentPlayer().getTurnScore();
+			game.getCurrentPlayer().setTurnScore(turnScore);
 			StdOut.println(player + " scored " + turnScore + " for this turn.");
-			
-			round.startNewRound();
-			
-			StdOut.println(player+ " Overall Score: " + round.getRoundScores());
+
+			game.nextPlayerTurn();
+
+			StdOut.println(player + " Overall Score: " + game.getCurrentPlayer().getPlayerScore());
 		}
-		}
-//		StdOut.println(player.getName() + "Overall Score: " + round.getRoundScores());
-	//}
+	}
+	// StdOut.println(player.getName() + "Overall Score: " +
+	// round.getRoundScores());
+	// }
 
 	@Override
 	public void showMessage(String msg)
@@ -105,3 +98,17 @@ public class SkunkApp implements Reporter
 	}
 
 }
+
+// Player players [] = new Player[numPlayers];
+//
+// for (int i = 0; i < players.length; i++)
+// {
+//
+// StdOut.print("* Enter the name for player " + (i + 1) + " : " + "\n");
+// String playerName = StdIn.readLine();
+// Player newPlayer = new Player(playerName);
+// players[i] = newPlayer ;
+// }
+//
+// String playerName = StdIn.readLine();
+// Player player = new Player(playerName);

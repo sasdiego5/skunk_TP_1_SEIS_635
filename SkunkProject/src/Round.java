@@ -1,28 +1,27 @@
-import java.util.ArrayList;
 
 public class Round 
 {
-	private int roundNumber;
 	private Turn playerTurn;
 	private int roundScore;
+	private int turnNumber;
 	
 	public Round() 
 	{
-		this.roundNumber = 1;
+		this.turnNumber = 1;
 		this.playerTurn = new Turn();
 		this.roundScore  = 0;
 		
 	}
 	
-	public void startNewRound() 
+	public void startNewTurn() 
 	{
 		this.playerTurn = new Turn();
-		this.roundNumber++;
+		turnNumber++;
 	}
 	
-	public int getRoundNumber() 
+	public int getTurnNumber() 
 	{
-		return roundNumber;
+		return turnNumber;
 	}
 	
 	public void setRoundScores(int scoreTurn) 
@@ -58,6 +57,11 @@ public class Round
 	public int getTurnScore()
 	{
 		return this.playerTurn.getTurnScore();
+	}
+	
+	public Turn getCurrentTurn() 
+	{
+		return this.playerTurn;
 	}
 	
 	 

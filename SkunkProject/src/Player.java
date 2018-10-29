@@ -1,6 +1,7 @@
 public class Player 
 {
 	private String name;
+	private Round round;
 	private Roll diceRoll;
 	private int score;
 	private Turn turn;
@@ -10,6 +11,7 @@ public class Player
 	public Player(String name) 
 	{
 		this.name = name;
+		this.turn = new Turn();
 	}
 	
 	public void setName(String name) 
@@ -36,6 +38,36 @@ public class Player
 	{
 		this.diceRoll = new Roll();
 	}
+	
+	public void rollAgain()
+	{
+//		this.turn = new Turn();
+		this.turn.rollAgain();
+	}
 
+	public void scoreTurn()
+	{
+		this.turn.scoreTurn();
+	}
+	
+	public Roll getLastRoll()
+	{
+		return this.turn.getLastRoll();
+	}
+	
+	public int getTurnScore()
+	{
+		return this.turn.getTurnScore();
+	}
+	
+	public void setTurnScore(int scoreTurn) 
+	{
+		this.score += turn.getTurnScore();
+	}
+	
+	public int getPlayerScore() 
+	{
+		return score;
+	}
 
 }
