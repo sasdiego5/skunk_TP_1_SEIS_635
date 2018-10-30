@@ -53,6 +53,12 @@ public class Turn
 			turnScore += lastRoll.getDice().getLastRoll();
 		}
 	}
+	
+	public String getDiceVals() 
+	{
+		
+		return lastRoll.getDiceVals();
+	}
 
 	public boolean ends() 
 	{

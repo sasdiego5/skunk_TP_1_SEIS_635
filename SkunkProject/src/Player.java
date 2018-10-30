@@ -11,9 +11,11 @@ public class Player
 	public Player(String name) 
 	{
 		this.name = name;
-		this.turn = new Turn();
+		this.score = 0;
+		this.chips = this.initChips;
+//		this.turn = new Turn();
 	}
-	
+		
 	public void setName(String name) 
 	{
 		this.name = name;
@@ -22,6 +24,22 @@ public class Player
 	public String getName() 
 	{
 		return this.name;
+	}
+		
+	public void playerRoll() 
+	{
+		this.diceRoll = new Roll();
+	}
+	
+	public void rollAgain()
+	{
+//		this.turn = new Turn();
+		this.turn.rollAgain();
+	}
+	
+	public Roll getLastRoll()
+	{
+		return this.turn.getLastRoll();
 	}
 	
 	public int getScore() 
@@ -34,25 +52,9 @@ public class Player
 		this.score += score;
 	}
 	
-	public void playerRoll() 
-	{
-		this.diceRoll = new Roll();
-	}
-	
-	public void rollAgain()
-	{
-//		this.turn = new Turn();
-		this.turn.rollAgain();
-	}
-
 	public void scoreTurn()
 	{
 		this.turn.scoreTurn();
-	}
-	
-	public Roll getLastRoll()
-	{
-		return this.turn.getLastRoll();
 	}
 	
 	public int getTurnScore()
@@ -65,9 +67,10 @@ public class Player
 		this.score += turn.getTurnScore();
 	}
 	
-	public int getPlayerScore() 
+	public String toString()
 	{
-		return score;
+		
+		return "Player: " + name + ", Score: "+ score;
 	}
 
 }

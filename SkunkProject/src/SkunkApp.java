@@ -13,7 +13,7 @@ public class SkunkApp implements Reporter
 		StdOut.println("**************************************************************************");
 		StdOut.println("Welcome to 635 Skunk project!");
 
-		StdOut.println("Do you want to view the rules of the game? yes or no?");
+		StdOut.println("Do you want to view the rules of the game? Enter: yes or no");
 
 		String viewRules = StdIn.readLine();
 
@@ -30,28 +30,20 @@ public class SkunkApp implements Reporter
 		game.setPlayersNum(numPlayers);
 
 		game.addPlayer();
-		game.startRound();
-
-		String player = game.getPlayerName();
-
-		StdOut.println("Starting Turn number: " + game.getTurnNumber());
-
-		StdOut.println("Player in Turn to Roll the dice: " + player);
-
-		// Turn turn = new Turn();
-
-		// Round round = new Round();
-
-		// while (game.getRoundNumber() <= 5)
-		// {
-		StdOut.println("Starting turn for player number: " + game.getNextTurnIndex() + 1);
-
-		// StdOut.println("Player in turn: " +
-		// game.getPlayerName(game.getNextTurnIndex()));
-		StdOut.println("Player in turn: " + game.getPlayerName());
-				
-		while (game.getTurnNumber() <= 5)
+		
+		while (!game.winner())
 		{
+			String player = game.getPlayerName();
+
+			StdOut.println("Starting Turn number: " + game.getTurnNumber());
+
+			StdOut.println("Player in Turn to Roll the dice: " + player);
+
+			StdOut.println("Starting turn for player number: " + game.getNextTurnIndex());
+
+			// StdOut.println("Player in turn: " +
+			// game.getPlayerName(game.getNextTurnIndex()));
+			StdOut.println("Player in turn: " + game.getPlayerName());
 
 			while (true)
 			{
@@ -61,10 +53,11 @@ public class SkunkApp implements Reporter
 
 				if (!response.equalsIgnoreCase("no"))
 				{
-					game.getCurrentPlayer().rollAgain();
-					game.getCurrentPlayer().scoreTurn();
-					StdOut.println(
-							player + " rolled a " + game.getCurrentPlayer().getLastRoll().getDice().getLastRoll());
+					game.getRound().rollAgain();
+					game.getRound().scoreTurn();
+					StdOut.println(player + " rolled a " + game.getRound().getLastRoll().getDice().getLastRoll());
+					StdOut.println(game.getRound().getDiceVals());
+
 					if (game.ends())
 						break;
 				}
@@ -74,19 +67,28 @@ public class SkunkApp implements Reporter
 					break;
 				}
 
+//				game.nextPlayerTurn();
+//				game.getRound().startNewTurn();
 			}
 
 			// int turnScore = turn.getTurnScore();
 
-			int turnScore = game.getCurrentPlayer().getTurnScore();
-			game.getCurrentPlayer().setTurnScore(turnScore);
+			int turnScore = game.getRound().getTurnScore();
+			game.getRound().setTurnScore(turnScore);
 			StdOut.println(player + " scored " + turnScore + " for this turn.");
+			StdOut.println(player + " Overall Score: " + game.getRound().getTurnScore());
 
-			game.nextPlayerTurn();
+			 game.nextPlayerTurn();
+			 game.getRound().startNewTurn();
 
-			StdOut.println(player + " Overall Score: " + game.getCurrentPlayer().getPlayerScore());
 		}
+		
+		StdOut.println("Winner!");
 	}
+	
+
+
+
 	// StdOut.println(player.getName() + "Overall Score: " +
 	// round.getRoundScores());
 	// }

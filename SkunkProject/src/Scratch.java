@@ -48,7 +48,7 @@ public class Scratch
 			//int turnScore = turn.getTurnScore();
 
 			int turnScore = round.getTurnScore();
-			round.setRoundScores(turnScore);
+			round.setTurnScore(turnScore);
 			StdOut.println(player.getName() + " scored " + turnScore + " for this turn.");
 			
 			round.startNewTurn();

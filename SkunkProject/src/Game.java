@@ -17,24 +17,34 @@ public class Game
 	private int nextTurnIndex;
 	private Turn turn;
 
-
 	public Game()
 	{
-		round = new Round();
+		this.round = new Round();
+		this.nextTurnIndex = 0;
+		
 	}
 
-	public void startRound() 
+	public void startNewTurn()
 	{
-		turn = new Turn();
-		round = new Round();
+
+		nextPlayerTurn();
 		round.startNewTurn();
+		// turn = new Turn();
+		// round = new Round();
+		// this.turnPlayer = players[nextTurnIndex];
+
 	}
-	
-	public int getTurnNumber() 
+
+	public int getTurnNumber()
 	{
 		return round.getTurnNumber();
 	}
-	
+
+	public Round getRound()
+	{
+		return this.round;
+	}
+
 	public void addPlayer()
 	{
 		this.players = new Player[this.numPlayers];
@@ -47,20 +57,33 @@ public class Game
 			players[i] = newPlayer;
 		}
 	}
-	
+
+	public boolean winner()
+	{
+		for (int i = 0; i < players.length; i++)
+			if (players[i].getScore() >= 11)
+			return true;
+		
+		return false;
+	}
+
 	public boolean ends()
 	{
 		return this.round.ends();
-//		return this.turn.ends();
+		// return this.round.getCurrentTurn().ends();
+		// return this.turn.ends();
 	}
-	
-	public Player getCurrentPlayer() 
+
+	public Player getCurrentPlayer()
 	{
-		Player currentPlayer = players[nextTurnIndex];
-		return currentPlayer;
+		// Player currentPlayer = players[nextTurnIndex];
+		// return currentPlayer;
+
+		this.turnPlayer = players[nextTurnIndex];
+		return turnPlayer;
 	}
-	
-	public int getNextTurnIndex() 
+
+	public int getNextTurnIndex()
 	{
 		return this.nextTurnIndex;
 	}
@@ -75,11 +98,11 @@ public class Game
 		return this.numPlayers;
 	}
 
-//	public String getPlayerName(int playerIndex)
-//	{
-//		String playerName = players[playerIndex].getName();
-//		return playerName;
-//	}
+	// public String getPlayerName(int playerIndex)
+	// {
+	// String playerName = players[playerIndex].getName();
+	// return playerName;
+	// }
 
 	public String getPlayerName()
 	{
@@ -87,20 +110,25 @@ public class Game
 		return playerName;
 	}
 
-
-	public void nextPlayerTurn()
+	public Player nextPlayerTurn()
 	{
-		
-		if (nextTurnIndex >= this.players.length)
-			nextTurnIndex = 0;
-		else
+		// this.round.startNewTurn();
+
+		if (nextTurnIndex < this.players.length)
 			nextTurnIndex++;
-		
-//		this.turnPlayer = this.players[nextTurnIndex];
-		
-		this.round.startNewTurn();
+		else
+			nextTurnIndex = 0;
+
+		this.turnPlayer = players[nextTurnIndex];
+
+		return this.turnPlayer;
 	}
-	
+
+	public void setPlayerScore(int score)
+	{
+		this.turnPlayer.setScore(score);
+	}
+
 	public void displayRules() throws IOException
 	{
 		String Line;
@@ -117,6 +145,7 @@ public class Game
 		fileScan.close();
 
 	}
+
 	public static void main(String[] args) throws IOException
 	{
 		Game game = new Game();
@@ -128,5 +157,20 @@ public class Game
 		game.setPlayersNum(numPlayers);
 
 		game.addPlayer();
+
+		StdOut.println(game.getCurrentPlayer());
+
+		game.getCurrentPlayer().setScore(2);
+
+		StdOut.println(game.getCurrentPlayer().getScore());
+
+		StdOut.println(game.getCurrentPlayer());
+
+		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.nextPlayerTurn());
+
+
 	}
 }

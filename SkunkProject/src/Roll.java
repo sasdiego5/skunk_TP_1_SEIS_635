@@ -12,6 +12,12 @@ public class Roll
 	{
 		return this.dice;
 	}
+	
+	public String getDiceVals()
+	{
+		return "Die 1 " + this.dice.getDie1() + 
+				"\nDie 2 " + this.dice.getDie2();
+	}
 
 	public void setDice(Die die1, Die die2) // convenient for testing with
 											// predictable Die

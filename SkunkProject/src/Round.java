@@ -24,7 +24,7 @@ public class Round
 		return turnNumber;
 	}
 	
-	public void setRoundScores(int scoreTurn) 
+	public void setTurnScore(int scoreTurn) 
 	{
 		this.roundScore += playerTurn.getTurnScore();
 	}
@@ -64,5 +64,8 @@ public class Round
 		return this.playerTurn;
 	}
 	
-	 
+	public String getDiceVals() 
+	{
+		return playerTurn.getDiceVals();
+	}
 }
