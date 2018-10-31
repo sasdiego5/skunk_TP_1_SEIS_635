@@ -32,13 +32,14 @@ public class Dice
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.roll();
+		//this.roll();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
 	{
 		this.die1 = die1;
 		this.die2 = die2;
+		//this.roll();
 	}
 
 	
@@ -83,6 +84,26 @@ public class Dice
 	{
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 
+	}
+	
+	public Die getDie1()
+	{
+		return this.die1;
+	}
+
+	public Die getDie2()
+	{
+		return this.die2;
+	}
+
+	public void setDie1(Die d)
+	{
+		this.die1 = d;
+	}
+
+	public void setDie2(Die d)
+	{
+		this.die2 = d;
 	}
 
 	// static methods can go anywhere - but at end is standard

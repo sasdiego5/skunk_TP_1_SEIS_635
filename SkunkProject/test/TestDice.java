@@ -40,7 +40,7 @@ public class TestDice
 		dice.roll();
 		int value = dice.getLastRoll();
 
-		assertEquals("First Value Not 3", 5, value);
+		assertEquals("First Value Not 5", 5, value);
 
 	}
 

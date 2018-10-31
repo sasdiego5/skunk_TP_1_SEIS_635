@@ -8,7 +8,7 @@ public class Die
 
 	public Die()
 	{
-		this.roll();
+		//this.roll(); // keeps consistent with pred-die constructor
 	}
 
 	// Method for JUnit Testing
@@ -50,7 +50,9 @@ public class Die
 	@Override
 	public String toString() // this OVERRIDES the default Object.toString()
 	{
-		return "Die: " + this.getLastRoll();
+//		return "Die: " + this.getLastRoll();
+		return "rolled: "+ this.getLastRoll();
+
 	}
 
 }
