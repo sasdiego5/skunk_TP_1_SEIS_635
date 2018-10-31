@@ -114,7 +114,7 @@ public class Game
 	{
 		// this.round.startNewTurn();
 
-		if (nextTurnIndex < this.players.length)
+		if (nextTurnIndex < this.players.length - 1)
 			nextTurnIndex++;
 		else
 			nextTurnIndex = 0;
@@ -122,6 +122,11 @@ public class Game
 		this.turnPlayer = players[nextTurnIndex];
 
 		return this.turnPlayer;
+	}
+	
+	public int playerArrayLength() 
+	{
+		return this.players.length;
 	}
 
 	public void setPlayerScore(int score)
@@ -157,6 +162,8 @@ public class Game
 		game.setPlayersNum(numPlayers);
 
 		game.addPlayer();
+		
+		StdOut.println(game.playerArrayLength());
 
 		StdOut.println(game.getCurrentPlayer());
 
@@ -165,11 +172,20 @@ public class Game
 		StdOut.println(game.getCurrentPlayer().getScore());
 
 		StdOut.println(game.getCurrentPlayer());
+		StdOut.println(game.getCurrentPlayer().getScore());
 
 		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.getCurrentPlayer().getScore());
+
 		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.getCurrentPlayer().getScore());
+
 		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.getCurrentPlayer().getScore());
+
 		StdOut.println(game.nextPlayerTurn());
+		StdOut.println(game.getCurrentPlayer().getScore());
+
 
 
 	}
