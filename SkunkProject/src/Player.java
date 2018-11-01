@@ -1,8 +1,9 @@
+import edu.princeton.cs.introcs.StdOut;
+
 public class Player
 {
 	private String name;
-	private Roll diceRoll;
-	private Turn turn;
+	private Dice diceRoll;
 	private int score;
 	private int chips;
 	private final int initChips = 50;
@@ -30,19 +31,30 @@ public class Player
 	}
 
 	public void setScore(int score)
-	{		
-		if (this.diceRoll.isDoubleSkunk()) 
-	{
-		this.score = score * 0;
-	}
+	{				
 		this.score += score;
 	}
-
-	public void playerRoll()
+	
+	public void eraseScore() 
 	{
-		this.diceRoll = new Roll();
+		this.score = 0;
 	}
-
+	
+	public int getChips() 
+	{
+		return this.chips;
+	}
+	
+	public void addChips(int chips) 
+	{
+		this.chips += chips;
+	}
+	
+	public void subtractChips(int chips) 
+	{
+		this.chips -= chips;
+	}
+	
 	public String toString()
 	{
 		return "Player: " + name + " --> Scored: " + score;

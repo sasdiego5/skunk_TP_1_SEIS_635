@@ -65,8 +65,10 @@ public class SkunkApp implements Reporter
 
 			int turnScore = game.getRound().getTurnScore();
 			game.getCurrentPlayer().setScore(turnScore);
+			game.penalties();
 			StdOut.println(player + " scored " + turnScore + " for this turn.");
 			StdOut.println(player + "'s Overall Score: " + game.getCurrentPlayer().getScore());
+			StdOut.println(player + "has " + game.getCurrentPlayer().getChips() + " chips.");
 
 			game.nextPlayerTurn();
 			game.getRound().startNewTurn();

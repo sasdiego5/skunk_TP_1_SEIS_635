@@ -23,18 +23,18 @@ public class Game
 	{
 		return this.round;
 	}
-	
+
 	public void startNewTurn()
 	{
 		nextPlayerTurn();
 		round.startNewTurn();
 	}
-	
+
 	public int getPlayersNum()
 	{
 		return this.numPlayers;
 	}
-	
+
 	public void setPlayersNum(int playerNum)
 	{
 		this.numPlayers = playerNum;
@@ -52,13 +52,13 @@ public class Game
 			players[i] = newPlayer;
 		}
 	}
-	
+
 	public String getPlayerName()
 	{
 		String playerName = players[nextTurnIndex].getName();
 		return playerName;
 	}
-	
+
 	public Player getCurrentPlayer()
 	{
 		this.turnPlayer = players[nextTurnIndex];
@@ -76,15 +76,33 @@ public class Game
 
 		return this.turnPlayer;
 	}
-	
+
 	public int getNextTurnIndex()
 	{
 		return this.nextTurnIndex + 1;
 	}
-	
+
 	public int getTurnNumber()
 	{
 		return round.getTurnNumber();
+	}
+
+	public void penalties()
+	{
+		if (round.getLastRoll().isDoubleSkunk())
+		{
+			getCurrentPlayer().eraseScore();
+			getCurrentPlayer().subtractChips(4);
+		}
+
+		else if (round.getLastRoll().isDeuceSkunk())
+		{
+			getCurrentPlayer().subtractChips(2);
+		}
+		else if (round.getLastRoll().isSingleSkunk())
+		{
+			getCurrentPlayer().subtractChips(1);
+		}
 	}
 
 	public boolean win()
@@ -126,6 +144,6 @@ public class Game
 	public static void main(String[] args) throws IOException
 	{
 		Game game = new Game();
-		
+
 	}
 }
