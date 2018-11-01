@@ -68,7 +68,7 @@ public class SkunkApp implements Reporter
 			game.penalties();
 			StdOut.println(player + " scored " + turnScore + " for this turn.");
 			StdOut.println(player + "'s Overall Score: " + game.getCurrentPlayer().getScore());
-			StdOut.println(player + "has " + game.getCurrentPlayer().getChips() + " chips.");
+			StdOut.println(player + " has " + game.getCurrentPlayer().getChips() + " chips left.");
 
 			game.nextPlayerTurn();
 			game.getRound().startNewTurn();

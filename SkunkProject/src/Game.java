@@ -12,11 +12,13 @@ public class Game
 	private Player turnPlayer;
 	private int nextTurnIndex;
 	private Player winner;
+	private int kitty;
 
 	public Game()
 	{
 		this.round = new Round();
 		this.nextTurnIndex = 0;
+		this.kitty = 0;
 	}
 
 	public Round getRound()
@@ -126,6 +128,16 @@ public class Game
 		return this.round.ends();
 	}
 
+	public void setKitty(int chips) 
+	{
+		this.kitty += chips;
+	}
+	
+	public int getKitty() 
+	{
+		return this.kitty;
+	}
+	
 	public void displayRules() throws IOException
 	{
 		String Line;
