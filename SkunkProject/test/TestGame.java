@@ -4,16 +4,26 @@ import org.junit.Test;
 
 public class TestGame {
 
+
+	private Round round;
+	private Game game;
 	
 	@Test
-	public void testGetRound() {
-		this.round = new Round();
-		String TestRound = this.round.getRound();
-		assertEquals("This round is the correct rounf",TestRound);
-
+	public void test_getRound() {
 		
-		fail("Not yet implemented");
+		//this.round = new Round();
+		//String TestRound = this.round.getRound();
+		//assertEquals("This round is the correct round ",TestRound);
 	}
+	
+	@Test
+	public void test_3_players() {
+		this.game = new Game();
+		game.setPlayersNum(3);
+		int value = game.getPlayersNum();
+		assertEquals("There are ", 3, value);
+	}
+
 
 	@Test
 	public void testStartNewTurn() {
@@ -21,13 +31,19 @@ public class TestGame {
 	}
 
 	@Test
-	public void testGetPlayersNum() {
-		fail("Not yet implemented");
+	public void test_getPlayersNum() {
+		this.game = new Game();
+		game.setPlayersNum(4);
+		int value = game.getPlayersNum();
+		assertEquals("There are ", 4, value);
 	}
 
 	@Test
 	public void testSetPlayersNum() {
-		fail("Not yet implemented");
+		this.game = new Game();
+		game.setPlayersNum(1);
+		int value = game.getPlayersNum();
+		assertEquals("There are ", 1, value);
 	}
 
 	@Test
@@ -36,8 +52,13 @@ public class TestGame {
 	}
 
 	@Test
-	public void testGetPlayerName() {
-		fail("Not yet implemented");
+	public void test_getPlayerName() {
+		this.game = new Game();
+		game.setPlayersNum(1);
+		game.addPlayer();
+		
+		String name = game.getPlayerName();
+		assertEquals("The player's name is ", "Tom", name);
 	}
 
 	@Test
@@ -81,68 +102,12 @@ public class TestGame {
 	}
 
 	@Test
-	public void testMain() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetClass() {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
+	
 
-	@Test
-	public void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFinalize() {
-		fail("Not yet implemented");
-	}
+	
 
 }
