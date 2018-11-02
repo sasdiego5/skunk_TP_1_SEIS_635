@@ -95,15 +95,18 @@ public class Game
 		{
 			getCurrentPlayer().eraseScore();
 			getCurrentPlayer().subtractChips(4);
+			setKitty(4);
 		}
 
 		else if (round.getLastRoll().isDeuceSkunk())
 		{
 			getCurrentPlayer().subtractChips(2);
+			setKitty(2);
 		}
 		else if (round.getLastRoll().isSingleSkunk())
 		{
 			getCurrentPlayer().subtractChips(1);
+			setKitty(1);
 		}
 	}
 
@@ -118,7 +121,7 @@ public class Game
 		return false;
 	}
 
-	public Player winner()
+	public Player getWinner()
 	{
 		return this.winner;
 	}
@@ -136,6 +139,11 @@ public class Game
 	public int getKitty() 
 	{
 		return this.kitty;
+	}
+	
+	public void winKitty() 
+	{
+		getWinner().addChips(getKitty());
 	}
 	
 	public void displayRules() throws IOException

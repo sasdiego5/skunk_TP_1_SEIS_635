@@ -75,7 +75,7 @@ public class SkunkApp implements Reporter
 
 		}
 		StdOut.println("After " + game.getTurnNumber() + " turns");
-		StdOut.println(game.winner() + " is the Winner!");
+		StdOut.println(game.getWinner() + " is the Winner!");
 		
 	}
 
