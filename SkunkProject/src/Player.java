@@ -57,7 +57,7 @@ public class Player
 	
 	public String toString()
 	{
-		return "Player: " + name + " --> Scored: " + score;
+		return "Player: " + this.name + "\nScore: " + this.score + "\nChips:" + this.chips + "\n";
 	}
-
+	
 }

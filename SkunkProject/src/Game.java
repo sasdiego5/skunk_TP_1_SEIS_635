@@ -146,6 +146,12 @@ public class Game
 		getWinner().addChips(getKitty());
 	}
 	
+	public String gameStats() 
+	{
+		return null;
+		
+	}
+	
 	public void displayRules() throws IOException
 	{
 		String Line;
@@ -160,6 +166,7 @@ public class Game
 		}
 		fileScan.close();
 	}
+	
 
 	public static void main(String[] args) throws IOException
 	{
