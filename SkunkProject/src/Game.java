@@ -39,11 +39,11 @@ public class Game
 
 	public void setPlayersNum(int playerNum)
 	{
-		if(playerNum < 2) 
+		if (playerNum < 2)
 		{
 			StdOut.println("The game has to be played by two or more participants!");
 		}
-		
+
 		this.numPlayers = playerNum;
 	}
 
@@ -98,7 +98,7 @@ public class Game
 	{
 		if (round.getLastRoll() == null)
 			return;
-		
+
 		if (round.getLastRoll().isDoubleSkunk())
 		{
 			getCurrentPlayer().eraseScore();
@@ -139,27 +139,27 @@ public class Game
 		return this.round.ends();
 	}
 
-	public void setKitty(int chips) 
+	public void setKitty(int chips)
 	{
 		this.kitty += chips;
 	}
-	
-	public int getKitty() 
+
+	public int getKitty()
 	{
 		return this.kitty;
 	}
-	
-	public void winKitty() 
+
+	public void winKitty()
 	{
 		getWinner().addChips(getKitty());
 	}
-	
-	public String gameStats() 
+
+	public String gameStats()
 	{
 		return null;
-		
+
 	}
-	
+
 	public void displayRules() throws IOException
 	{
 		String Line;
@@ -174,7 +174,6 @@ public class Game
 		}
 		fileScan.close();
 	}
-	
 
 	public static void main(String[] args) throws IOException
 	{

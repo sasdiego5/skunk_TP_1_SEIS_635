@@ -3,7 +3,7 @@ import edu.princeton.cs.introcs.StdOut;
 public class Player
 {
 	private String name;
-	private Dice diceRoll;
+//	private Dice diceRoll;
 	private int score;
 	private int chips;
 	private final int initChips = 50;

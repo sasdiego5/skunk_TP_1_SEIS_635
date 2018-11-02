@@ -83,7 +83,7 @@ public class SkunkApp implements Reporter
 			game.getRound().startNewTurn();
 
 		}
-		
+				
 		StdOut.println("After " + game.getTurnNumber() + " turns");
 		game.winKitty();
 		StdOut.println(game.getWinner() + " is the Winner of this round!");
