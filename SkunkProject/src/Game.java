@@ -39,6 +39,11 @@ public class Game
 
 	public void setPlayersNum(int playerNum)
 	{
+		if(playerNum < 2) 
+		{
+			StdOut.println("The game has to be played by two or more participants!");
+		}
+		
 		this.numPlayers = playerNum;
 	}
 
@@ -91,6 +96,9 @@ public class Game
 
 	public void penalties()
 	{
+		if (round.getLastRoll() == null)
+			return;
+		
 		if (round.getLastRoll().isDoubleSkunk())
 		{
 			getCurrentPlayer().eraseScore();

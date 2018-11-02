@@ -12,31 +12,40 @@ public class SkunkApp implements Reporter
 
 		StdOut.println("**************************************************************************");
 		StdOut.println("Welcome to 635 Skunk project!");
+		StdOut.println("**************************************************************************");
+
+		int numPlayers = 0;
+		while(numPlayers < 2)
+		{
+			StdOut.println("Enter number of players: ");
+			numPlayers = StdIn.readInt();
+			StdIn.readLine();
+			game.setPlayersNum(numPlayers);
+		}
+		
+		game.addPlayer();
+		
+		StdOut.println("**************************************************************************");
 
 		StdOut.println("Do you want to view the rules of the game? Enter: yes or no");
-
 		String viewRules = StdIn.readLine();
-
 		if (viewRules.equalsIgnoreCase("y"))
 		{
 			game.displayRules();
 		}
-
+		
+		StdOut.println("**************************************************************************");
+		StdOut.println("Let The Game Begin!");
 		StdOut.println("**************************************************************************");
 
-		StdOut.println("Enter number of players: ");
-		int numPlayers = StdIn.readInt();
-		StdIn.readLine();
-		game.setPlayersNum(numPlayers);
-		game.addPlayer();
 
 		while (!game.win())
 		{
 			String player = game.getPlayerName();
 
-			StdOut.println("Starting Turn number: " + game.getTurnNumber());
+			StdOut.println("Turn " + game.getTurnNumber());
 
-			StdOut.println("Starting turn for player number: " + game.getNextTurnIndex());
+//			StdOut.println("Starting turn for player" + game.getNextTurnIndex());
 
 			StdOut.println("Player in Turn to Roll the dice: " + player);
 
@@ -74,12 +83,11 @@ public class SkunkApp implements Reporter
 			game.getRound().startNewTurn();
 
 		}
+		
 		StdOut.println("After " + game.getTurnNumber() + " turns");
 		game.winKitty();
-		StdOut.println(game.getWinner() + " is the Winner!");
-		
-		
-		
+		StdOut.println(game.getWinner() + " is the Winner of this round!");
+
 	}
 
 	@Override
@@ -88,4 +96,3 @@ public class SkunkApp implements Reporter
 		StdOut.println(msg);
 	}
 }
-
