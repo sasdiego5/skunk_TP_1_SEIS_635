@@ -1,53 +1,67 @@
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestRound {
+public class TestRound
+{
 	private Round round;
 
-	@Test
-	public void testRound() {
-		fail("Not yet implemented");
+	@Before
+	public void setUp() throws Exception
+	{
+		this.round = new Round();
+	}
+
+	@After
+	public void tearDown() throws Exception
+	{
 	}
 
 	@Test
-	public void testStartNewTurn() {
+	public void test_getTurnNumber()
+	{
 		round.startNewTurn();
-//        Assert.assertEquals(playerTurn, round.currentPlayer());
+		round.startNewTurn();
+		int turnNumber = this.round.getTurnNumber();
+		assertEquals("The turn number is not 3",turnNumber, 3);
 	}
 
 	@Test
-	public void testGetTurnNumber() {
+	public void testScoreTurn()
+	{
+		round.startNewTurn();
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testScoreTurn() {
+	public void testGetTurnScore()
+	{
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetTurnScore() {
+	public void testRollAgain()
+	{
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testRollAgain() {
+	public void testGetLastRoll()
+	{
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetLastRoll() {
+	public void testGetDiceVals()
+	{
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetDiceVals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEnds() {
+	public void testEnds()
+	{
 		fail("Not yet implemented");
 	}
 

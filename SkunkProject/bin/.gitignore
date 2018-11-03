@@ -9,12 +9,11 @@
 /SkunkApp.class
 /TestDice.class
 /TestDie.class
+/TestGame.class
 /TestPlayer.class
 /TestRandomDie.class
 /TestRoll.class
+/TestRound.class
 /TestTurn.class
 /Turn.class
 /randomDiceTest.class
-/GameTest.class
-/TestGame.class
-/TestRound.class

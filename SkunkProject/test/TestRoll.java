@@ -182,6 +182,23 @@ public class TestRoll
 
 		assertFalse("no skunk reported as single skunk (2)", roll.isSingleSkunk());
 	}
+	
+	@Test
+	public void test_getDiceVals() 
+	{	
+		Die die1 = new Die(new int[]
+		{ 3 });
+		Die die2 = new Die(new int[]
+		{ 2 });
+
+		roll.setDice(die1, die2);
+		
+		String diceVals = "Die 1 rolled: 3\nDie 2 rolled: 2";
+
+		assertEquals("returned string does not match",  roll.getDiceVals(), diceVals);
+	}
+
+	
 
 }
 

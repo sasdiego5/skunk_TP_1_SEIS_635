@@ -1,12 +1,24 @@
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
+
 import org.junit.Test;
 
 public class TestGame {
 
-
-	private Round round;
 	private Game game;
+	
+	@Before
+	public void setUp() throws Exception
+	{
+	this.game = new Game();
+	}
+
+	@After
+	public void tearDown() throws Exception
+	{
+	}
 	
 	@Test
 	public void test_getRound() {
@@ -25,10 +37,10 @@ public class TestGame {
 	}
 
 
-	@Test
-	public void testStartNewTurn() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testStartNewTurn() {
+//		fail("Not yet implemented");
+//	}
 
 	@Test
 	public void test_getPlayersNum() {
@@ -46,10 +58,10 @@ public class TestGame {
 		assertEquals("There are ", 1, value);
 	}
 
-	@Test
-	public void testAddPlayer() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testAddPlayer() {
+//		fail("Not yet implemented");
+//	}
 
 	@Test
 	public void test_getPlayerName() {
@@ -61,50 +73,50 @@ public class TestGame {
 		assertEquals("The player's name is ", "Tom", name);
 	}
 
-	@Test
-	public void testGetCurrentPlayer() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNextPlayerTurn() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNextTurnIndex() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTurnNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWin() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWinner() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEnds() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDisplayRules() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClass() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testGetCurrentPlayer() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testNextPlayerTurn() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetNextTurnIndex() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetTurnNumber() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testWin() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testWinner() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testEnds() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testDisplayRules() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetClass() {
+//		fail("Not yet implemented");
+//	}
 
 	
 
