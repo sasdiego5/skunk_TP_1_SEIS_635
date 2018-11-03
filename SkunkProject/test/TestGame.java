@@ -58,10 +58,7 @@ public class TestGame {
 		assertEquals("There are ", 1, value);
 	}
 
-//	@Test
-//	public void testAddPlayer() {
-//		fail("Not yet implemented");
-//	}
+
 
 	@Test
 	public void test_getPlayerName() {
