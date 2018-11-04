@@ -76,18 +76,20 @@ public class SkunkApp implements Reporter
 			game.getCurrentPlayer().setScore(turnScore);
 			game.penalties();
 			StdOut.println(player + " scored " + turnScore + " for this turn.");
-			StdOut.println(player + "'s Overall Score: " + game.getCurrentPlayer().getScore());
-			StdOut.println(player + " has " + game.getCurrentPlayer().getChips() + " chips left.");
+			StdOut.println(game.getCurrentPlayer());
+//			StdOut.println(player + "'s Overall Score: " + game.getCurrentPlayer().getScore());
+//			StdOut.println(player + " has " + game.getCurrentPlayer().getChips() + " chips left.");
 
 			game.nextPlayerTurn();
 			game.getRound().startNewTurn();
 
 		}
 				
-		StdOut.println("After " + game.getTurnNumber() + " turns");
+		game.lastChanceTurn();
+		game.win();
 		game.winKitty();
-		StdOut.println(game.getWinner() + " is the Winner of this round!");
-
+		StdOut.println(game.getWinner().getName() + " is the Winner of this round!");
+		game.gameStats();
 	}
 
 	@Override
