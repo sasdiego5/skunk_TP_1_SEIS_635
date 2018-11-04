@@ -59,5 +59,10 @@ public class Player
 	{
 		return "Player: " + this.name + "\nScore: " + this.score + "\nChips:" + this.chips + "\n";
 	}
+
+	public String getCurrentPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

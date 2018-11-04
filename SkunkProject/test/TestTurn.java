@@ -5,49 +5,33 @@ import org.junit.Test;
 
 public class TestTurn
 {
-
+	private Turn turn;
+	
 	@Before
 	public void setUp() throws Exception
 	{
-	}
-
-	@Test
-	public void create_new_Turn()
-	{
-		Turn new_turn = new Turn();
+		this.turn = new Turn();
 	}
 
 	@Test
 	public void turn_score_0_in_new_Turn()
 	{
-		Turn new_turn = new Turn();
-		assertEquals("init_turn_score_not_0", 0, new_turn.getTurnScore());
+	int turnScore = this.turn.getTurnScore();
+	assertEquals("init_turn_score_not_0", turnScore, 0 );
 
 	}
-	
+	 
 	@Test public void last_roll_in_new_Turn() 
 	{
-		Turn new_turn = new Turn();
-		assertEquals("Expected a lastRoll object", null, new_turn.getLastRoll());
+	Roll lastRoll = this.turn.getLastRoll();
+	assertEquals("Expected a lastRoll object", lastRoll, null );
 	}
 
-//	@Test
-//	public void test3()
-//	{
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void test4()
-//	{
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void test5()
-//	{
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void test_rollAgain()
+	{
+	fail("Not yet implemented");
+	}
 
 }
 

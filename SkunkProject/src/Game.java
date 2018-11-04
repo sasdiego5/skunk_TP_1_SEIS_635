@@ -175,9 +175,5 @@ public class Game
 		fileScan.close();
 	}
 
-	public static void main(String[] args) throws IOException
-	{
-		Game game = new Game();
-
-	}
+	
 }

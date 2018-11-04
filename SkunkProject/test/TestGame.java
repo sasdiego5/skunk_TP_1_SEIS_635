@@ -30,7 +30,6 @@ public class TestGame {
 	
 	@Test
 	public void test_3_players() {
-		this.game = new Game();
 		game.setPlayersNum(3);
 		int value = game.getPlayersNum();
 		assertEquals("There are ", 3, value);
@@ -44,7 +43,6 @@ public class TestGame {
 
 	@Test
 	public void test_getPlayersNum() {
-		this.game = new Game();
 		game.setPlayersNum(4);
 		int value = game.getPlayersNum();
 		assertEquals("There are ", 4, value);
@@ -52,7 +50,6 @@ public class TestGame {
 
 	@Test
 	public void testSetPlayersNum() {
-		this.game = new Game();
 		game.setPlayersNum(1);
 		int value = game.getPlayersNum();
 		assertEquals("There are ", 1, value);
@@ -62,7 +59,6 @@ public class TestGame {
 
 	@Test
 	public void test_getPlayerName() {
-		this.game = new Game();
 		game.setPlayersNum(1);
 		game.addPlayer();
 		
@@ -70,10 +66,13 @@ public class TestGame {
 		assertEquals("The player's name is ", "Tom", name);
 	}
 
-//	@Test
-//	public void testGetCurrentPlayer() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testGetCurrentPlayer() {
+	
+		Player turnPlayer = new Player("");
+		Player currentPlayer = game.getCurrentPlayer();
+		assertEquals("The current player is ", "Tom", currentPlayer);
+	}
 //
 //	@Test
 //	public void testNextPlayerTurn() {
