@@ -121,7 +121,7 @@ public class Game
 	public boolean win()
 	{
 		for (int i = 0; i < players.length; i++)
-			if (players[i].getScore() >= 24)
+			if (players[i].getScore() >= 100)
 			{
 				this.winner = players[i];
 				return true;
@@ -151,51 +151,10 @@ public class Game
 
 	public void winKitty()
 	{
-		getWinner().addChips(getKitty());
-	}
+		getWinner().addChips(getKitty() + 5 * getPlayersNum());
 
-	public void lastChanceTurn()
-	{
-		StdOut.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		StdOut.println(getWinner().getName() + " has reached a winning score");
-		StdOut.println("Each of the other players get one more turn!");
-
-		if (getCurrentPlayer().getScore() > 24)
-		{
-			nextPlayerTurn();
-			getRound().startNewTurn();
-		}
-
-		while (true)
-		{
-			StdOut.println(getCurrentPlayer().getName() + ", Do you want to roll the dice? yes or no?");
-
-			String response = StdIn.readLine();
-
-			if (!response.equalsIgnoreCase("no"))
-			{
-				getRound().rollAgain();
-				getRound().scoreTurn();
-				StdOut.println(getCurrentPlayer() + " rolled a " + getRound().getLastRoll().getDice().getLastRoll());
-				StdOut.println(getRound().getDiceVals());
-
-				if (ends())
-					break;
-			}
-			else
-			{
-				StdOut.println(getCurrentPlayer() + " declined to roll.");
-				break;
-			}
-
-			int turnScore = getRound().getTurnScore();
-			getCurrentPlayer().setScore(turnScore);
-			penalties();
-			nextPlayerTurn();
-			getRound().startNewTurn();
-
-		}
-
+		for (int i = 0; i < players.length; i++)
+			players[i].subtractChips(5);
 	}
 
 	public void gameStats()
@@ -224,5 +183,4 @@ public class Game
 		}
 		fileScan.close();
 	}
-
 }
