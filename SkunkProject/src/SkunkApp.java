@@ -38,7 +38,8 @@ public class SkunkApp implements Reporter
 		StdOut.println("Let The Game Begin!");
 		StdOut.println("**************************************************************************");
 
-		while (!game.win())
+		while (!game.win()) // play as many turns until a player scores 100 or
+							// more
 		{
 			String player = game.getPlayerName();
 
@@ -56,8 +57,8 @@ public class SkunkApp implements Reporter
 				{
 					game.getRound().rollAgain();
 					game.getRound().scoreTurn();
-					StdOut.println(player + " rolled a " + game.getRound().getLastRoll().getDice().getLastRoll());
 					StdOut.println(game.getRound().getDiceVals());
+					StdOut.println(player + " rolled a " + game.getRound().getLastRoll().getDice().getLastRoll());
 
 					if (game.ends())
 						break;
@@ -73,6 +74,7 @@ public class SkunkApp implements Reporter
 			game.getCurrentPlayer().setScore(turnScore);
 			game.penalties();
 			StdOut.println(player + " scored " + turnScore + " points in this turn.");
+			StdOut.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
 			StdOut.println(game.getCurrentPlayer());
 
 			game.nextPlayerTurn();
@@ -84,7 +86,10 @@ public class SkunkApp implements Reporter
 		StdOut.println(game.getWinner().getName() + " has reached a winning score");
 		StdOut.println("Each of the other players get one more turn!");
 
-		while (game.getTurnNumber() + game.getPlayersNum() < game.getTurnNumber())
+		// extra turn for players to increase the score, exclude the player who
+		// scored 100 or more
+		int tempTurns = 1;
+		while (tempTurns <= game.getPlayersNum() - 1)
 		{
 			while (true)
 			{
@@ -96,37 +101,44 @@ public class SkunkApp implements Reporter
 				{
 					game.getRound().rollAgain();
 					game.getRound().scoreTurn();
-					StdOut.println(game.getCurrentPlayer() + " rolled a "
-							+ game.getRound().getLastRoll().getDice().getLastRoll());
 					StdOut.println(game.getRound().getDiceVals());
+					StdOut.println(game.getCurrentPlayer().getName() + " rolled a "
+							+ game.getRound().getLastRoll().getDice().getLastRoll());
 
 					if (game.ends())
 						break;
 				}
 				else
 				{
-					StdOut.println(game.getCurrentPlayer() + " declined to roll.");
+					StdOut.println(game.getCurrentPlayer().getName() + " declined to roll.");
 					break;
 				}
 
-				int turnScore = game.getRound().getTurnScore();
-				game.getCurrentPlayer().setScore(turnScore);
-				game.penalties();
+			}
+			
+			int turnScore = game.getRound().getTurnScore();
+			game.getCurrentPlayer().setScore(turnScore);
+			game.penalties();
+			StdOut.println(game.getCurrentPlayer().getName() + " scored " + turnScore + " points in this turn.");
+			StdOut.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
+			StdOut.println(game.getCurrentPlayer());
 
-				if (game.getCurrentPlayer().getScore() > 100)
-				{
-					game.nextPlayerTurn();
-					game.getRound().startNewTurn();
-				}
-
+			game.nextPlayerTurn();
+			game.getRound().startNewTurn();
+			
+			if (game.getCurrentPlayer().getScore() >= 100)
+			{
 				game.nextPlayerTurn();
 				game.getRound().startNewTurn();
-
 			}
+
+			tempTurns++;
 
 		}
 
 		game.win();
+		StdOut.println();
+		StdOut.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		StdOut.println(game.getWinner().getName() + " is the Winner of this round!");
 		game.winKitty();
 		game.gameStats();
